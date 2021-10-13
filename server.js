@@ -13,6 +13,7 @@ app.get('/', function (req, res) {
     res.sendFile(process.cwd() + '/views/index.html');
 });
 
+// Only Route
 app.post('/api/fileanalyse', upload.single('upfile'), function(req, res, next) {
   res.status(200).json({
     "name":req.file.originalname,
@@ -20,7 +21,6 @@ app.post('/api/fileanalyse', upload.single('upfile'), function(req, res, next) {
     "size":req.file.size
   })
 })
-
 
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
